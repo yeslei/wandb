@@ -10,6 +10,8 @@ except ModuleNotFoundError:
 
 import wandb
 
+import wandb
+
 
 def scale_bounding_box_to_original_image_shape(
     box: torch.Tensor,
