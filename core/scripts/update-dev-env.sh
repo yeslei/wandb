@@ -67,6 +67,10 @@ function install {
         echo "[INFO] update-dev-env.sh: Updating \"$COMMAND\" (Want version $VERSION)"
         go install -v $SPEC@$VERSION
     fi
+    # Ensure the command is in the PATH
+    if [ "$COMMAND" = "goimports" ]; then
+        export PATH=$PATH:$(go env GOPATH)/bin
+    fi
 }
 
 for SPEC in $(grep -E -v '^#' $DEV_ENV_FILE | cut -d" " -f1); do
