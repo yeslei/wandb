@@ -68,7 +68,7 @@ function install {
         go install -v $SPEC@$VERSION
     fi
     # Ensure the command is in the PATH
-    if [ "$COMMAND" = "goimports" ]; then
+    if [ "$COMMAND" = "goimports" ] || [ "$COMMAND" = "gocritic" ] || [ "$COMMAND" = "gocyclo" ] || [ "$COMMAND" = "golangci-lint" ]; then
         export PATH=$PATH:$(go env GOPATH)/bin
     fi
 }
